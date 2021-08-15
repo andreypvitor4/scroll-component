@@ -1,6 +1,8 @@
+# Responsive horizontal scroll react component
+
 ## Info
 
-A responsive react component read to use. A image link list row with horizontal scroll
+A responsive react component read to use. A image row list with horizontal scroll
 (click on pc and swipe on mobile)
 
 ## Getting started
@@ -13,7 +15,7 @@ There are 3 required parameters:
   images: receive an array of objects.
     this object has 4 properties:
       image: 
-        where you insert the image path(src), this is the only required propertie (the tag that has been used was the <img> tag, you might want to change it to <Image> in line 80 of the index.js)
+        where you insert the image path(src), this is the only required propertie.
       textTop: 
         where you insert a text that will be displayed on the top of the image.
       textBottom: 
@@ -23,7 +25,7 @@ There are 3 required parameters:
         where you insert the url this image will take you (the tag that has been used was the <a> tag, you might want to change it to <Link> in line 74 and 85 of the index.js)
   height: receive a number (px)
   width: receive a number (px)
-    height and width set the dimensions of the image space. The image will never be distorted but it will keep the original proportions and it will be placed in the image space.
+    height and width set the dimensions of the image space (not the image). The images will fill out the image space according to it dimensions
 
 Ex: 
   images = [{

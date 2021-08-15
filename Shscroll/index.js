@@ -24,6 +24,28 @@ function Shscroll(props) {
     return Number(result.join(''))
   }
 
+  const imagesTextsTop = props.images.filter(elem => {
+    return !!elem.textTop
+  })
+  const imagesTextsBottom = props.images.filter(elem => {
+    return !!elem.textBottom
+  })
+  let div_Image_JustifyContent
+  if(imagesTextsTop.length > 0 && imagesTextsBottom.length === 0) {
+    div_Image_JustifyContent = 'flex-end'
+  }else if(imagesTextsBottom.length > 0 && imagesTextsTop.length === 0) {
+    div_Image_JustifyContent = 'flex-start'
+  }else {
+    div_Image_JustifyContent = 'center'
+  }
+
+  let arrowsAdjustment
+  if(imagesTextsTop.length > 0 || imagesTextsBottom.length > 0) {
+    arrowsAdjustment = 50
+  }else {
+    arrowsAdjustment = 20
+  }
+
   // ----- Estilos dinamicos ----- //
   let section_list = {
     ...st.section_list,
@@ -49,12 +71,13 @@ function Shscroll(props) {
   }
   const arrows = {
     ...st.arrows,
-    height: `${getNumber(props.height)*1.111 + 80}px`,
+    height: `${getNumber(props.height)*1.111 + arrowsAdjustment}px`,
   }
   const div_item = {
     ...st.div_item,
     maxWidth: `${getNumber(props.width)*1.111}px`,
     background: `${props.itemBackground}`,
+    justifyContent: div_Image_JustifyContent,
     ...props.itemStyle,
   }
  // -----         ----- // 
@@ -71,13 +94,13 @@ function Shscroll(props) {
 
       <div style={div_Row} onTouchStart={pc.handleTransition}>
         {props.images.map((elem, index) => (
-          <a href={elem.link} key={index} style={st.link}>
+          <a style={st.link} href={elem.link || '#'} key={index}>
 
             <div style={div_item} onMouseOver={pc.handleTransformIn} 
             onMouseOut={pc.handleTransformOut}>
               <span style={st.span} >{elem.textTop}</span>
               <div style={div_Image}>
-                <img alt="" src={elem.image} style={st.img} />
+                <img alt={elem.alt} src={elem.image} style={st.img} />
               </div>
               <span style={st.span} >{elem.textBottom}</span>
             </div>

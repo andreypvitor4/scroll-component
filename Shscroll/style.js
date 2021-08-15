@@ -4,7 +4,8 @@ const style = {
     maxHeight: '100%',
   },
   div_Image: {
-    
+    display: 'flex',
+    justifyContent: 'center',
   },
   section_List: {
     width: '100%',
@@ -30,6 +31,7 @@ const style = {
     cursor: 'pointer',
     overflow: 'hidden',
     borderRadius: '8px',
+    marginTop: '10px',
   },
   link: {
     textDecoration: 'none',
@@ -38,9 +40,13 @@ const style = {
   div_item: {
     transform: 'scale(0.9)',
     transition: 'all ease 0.2s',
-    borderRadius: '8px',
+    borderRadius: '2px',
     overflow: 'hidden',
     height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
     textAlign: 'center',
   },
   span: {
